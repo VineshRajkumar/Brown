@@ -10,13 +10,13 @@ The-Brown-Blog-Site is a modern blog application built with **React, Redux, and 
 - Responsive design for a seamless experience
 
 ## Screenshots
-![The-Brown-Blog-Site Screenshot](![alt text](image.png))
-![The-Brown-Blog-Site Screenshot](![alt text](image-1.png))
-![The-Brown-Blog-Site Screenshot](![alt text](image-2.png))
-![The-Brown-Blog-Site Screenshot](![alt text](image-3.png))
-![The-Brown-Blog-Site Screenshot](![alt text](image-4.png))
-![The-Brown-Blog-Site Screenshot](![alt text](image-5.png))
-![The-Brown-Blog-Site 404 Page Screenshot](![alt text](image-6.png))
+![The-Brown-Blog-Site Screenshot](image.png)
+![The-Brown-Blog-Site Screenshot](image-1.png)
+![The-Brown-Blog-Site Screenshot](image-2.png)
+![The-Brown-Blog-Site Screenshot](image-3.png)
+![The-Brown-Blog-Site Screenshot](image-4.png)
+![The-Brown-Blog-Site Screenshot](image-5.png)
+![The-Brown-Blog-Site 404 Page Screenshot](image-6.png)
 
 ## Technology Stack
 
