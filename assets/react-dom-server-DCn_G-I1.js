@@ -1,0 +1,1 @@
+import{a as s,b as t}from"./react-dom-CasmKw4n.js";var r={},a;function i(){if(a)return r;a=1;var e,o;return e=s(),o=t(),r.version=e.version,r.renderToString=e.renderToString,r.renderToStaticMarkup=e.renderToStaticMarkup,r.renderToReadableStream=o.renderToReadableStream,o.resume&&(r.resume=o.resume),r}var u=i();export{u as s};
