@@ -7,61 +7,61 @@ const Footer = () => {
   const navItems = [
     {
       name: "Help",
-      slug: "/help",
+      slug: "/Brown/help",
       
       class: ""
     },
     {
       name: "Status",
-      slug: "/",
+      slug: "/Brown",
       
       class: "max-[903px]:hidden"
     },
     {
       name: "About",
-      slug: "/about",
+      slug: "/Brown/about",
      
       class: ""
     },
     {
       name: "Carrer",
-      slug: "/",
+      slug: "/Brown",
       
       class: "max-[903px]:hidden"
     },
     {
       name: "Press",
-      slug: "/",
+      slug: "/Brown",
       
       class: "max-[903px]:hidden"
     },
     {
       name: "Blog",
-      slug: "/",
+      slug: "/Brown",
       
       class: "max-[903px]:hidden"
     },
     {
       name: "Privacy",
-      slug: "/",
+      slug: "/Brown",
       
       class: ""
     },
     {
       name: "Terms",
-      slug: "/",
+      slug: "/Brown",
       
       class: ""
     },
     {
       name: "Text To Speech",
-      slug: "/",
+      slug: "/Brown",
       
       class: "max-[903px]:hidden"
     },
     {
       name: "Teams",
-      slug: "/",
+      slug: "/Brown",
       
       class: "max-[903px]:hidden"
     },

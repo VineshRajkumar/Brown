@@ -19,11 +19,11 @@ import NotFoundPage from './app/not-found/page'
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/Brown/',
     element: <Layout/>,
     children: [
       {
-        path: '/',
+        path: '/Brown/',
         element: <Home/>,
       },
       {

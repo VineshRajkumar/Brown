@@ -19,8 +19,9 @@ import Select from './components/Select'
 
 import React from 'react'
 import { useId } from 'react'
+import { forwardRef } from "react";
 
-const Select = ({
+const Select =  forwardRef(({
     //These are the properties/props 
     //that will be passed into this component
     options=[],
@@ -57,8 +58,12 @@ const Select = ({
       
     </div>
   )
-}
+})
 
 //sending forwardRef is necessary or else it wornt 
 //give its reference and that wont work
-export default React.forwardRef(Select);
+// export default React.forwardRef(Select);
+
+Select.displayName = "Select"; 
+
+export { Select };

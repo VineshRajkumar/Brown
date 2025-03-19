@@ -16,12 +16,12 @@ const EditPost = () => {
             serviceObj.getPost(slug).then((post)=>{
                 if(post){
                     setPost(post)
-                    console.log(post)
+                    // console.log(post)
                 }
             })
         }
         else{
-            navigate('/')
+            navigate('/Brown')
         }
     }, [slug,navigate])
     

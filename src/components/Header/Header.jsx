@@ -14,15 +14,15 @@ const Header = () => {
   const navItems = [
     {
       name: "Our Story",
-      slug: "/",
+      slug: "/Brown",
     },
     {
       name: "Membership",
-      slug: "/",
+      slug: "/Brown",
     },
     {
       name: "Write",
-      slug: "/post",
+      slug: "/Brown/post",
     },
   ];
 
@@ -32,7 +32,7 @@ const Header = () => {
         <nav className="p-4  border-1 border-b-black bg-[#f7f4ed] ">
           <div className="container mx-auto flex flex-row justify-between items-center">
             <Link
-              to="/"
+              to="/Brown"
               className="text-4xl font-extrabold font-cormorant-garamond "
             >
               Brown
@@ -42,7 +42,7 @@ const Header = () => {
               <div className="flex justify-evenly gap-x-6 px-9 cursor-pointer">
                 <div className="flex flex-row items-center gap-x-2">
                   <Link
-                    to="/dashboard"
+                    to="/Brown/dashboard"
                     className="my-auto font-roboto text-sm max-[547px]:hidden"
                   >
                     <Button className="  font-roboto text-sm font-medium  ">
@@ -50,7 +50,7 @@ const Header = () => {
                     </Button>
                   </Link>
                   <Link
-                    to="/post"
+                    to="/Brown/post"
                     className="my-auto font-roboto text-sm max-[547px]:hidden"
                   >
                     <Button className="font-roboto text-sm font-medium  ">
@@ -82,12 +82,12 @@ const Header = () => {
                   ))}
 
                   <Link
-                    to="/login"
+                    to="/Brown/login"
                     className="my-auto font-roboto text-sm max-[547px]:hidden"
                   >
                     Sign in
                   </Link>
-                  <Link to="/sign-up">
+                  <Link to="/Brown/sign-up">
                     <Button className=" rounded-3xl font-roboto text-sm font-medium  ">
                       Get started
                     </Button>

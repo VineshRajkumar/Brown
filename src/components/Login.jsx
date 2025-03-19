@@ -13,6 +13,7 @@ import { Toaster, toast } from 'sonner'
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   //register and handleSubmit are main in
   //react hook form
   const { register, handleSubmit } = useForm();
@@ -32,7 +33,7 @@ const Login = () => {
           dispatch(authLogin(userData));
         }
         // Toaster("Success", { description: "Login successful!" });
-        navigate("/");
+        navigate("/Brown");
       }
       else throw session;
     } catch (error) {
@@ -65,7 +66,7 @@ const Login = () => {
         <p className="mt-2 text-center text-base text-black/60">
           Don&apos;t have any account?&nbsp;
           <Link
-            to="/sign-up"
+            to="/Brown/sign-up"
             className="font-medium text-primary transition-all duration-200 hover:underline"
           >
             Sign Up
@@ -78,20 +79,23 @@ const Login = () => {
       <form onSubmit={handleSubmit(loginSubmit)}>
         <div className="space-y-5">
           <Input
+        
             label="Email: "
             placeholder="Enter your Email"
             type="email"
             {...register("email", {
               required: true,
               validate: {
-                matchPatern: (value) =>
+                matchPattern: (value) =>
                   /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
                   "Email address must be a valid address",
               },
             })}
+            
           />
 
           <Input
+          
             label="Password: "
             type="password"
             placeholder="Enter your Password"

@@ -4,6 +4,17 @@ import { useForm } from "react-hook-form";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Select } from "../ui/select";
+// import { Select } from "../Select";
+import { Controller } from "react-hook-form";
+import {
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectGroup,
+  SelectLabel,
+  SelectItem,
+} from "../ui/select";
+
 import { RTE } from "..";
 import serviceObj from "@/appwrite/config";
 import { useSelector } from "react-redux";
@@ -16,7 +27,7 @@ const PostForm = ({ post }) => {
       defaultValues: {
         title: post?.title || "",
         slug: post?.slug || "",
-        content: post?.content || "", 
+        content: post?.content || "",
         status: post?.status || "active",
       },
     });
@@ -30,18 +41,20 @@ const PostForm = ({ post }) => {
       if (!data) {
         throw new Error("Data not found ");
       }
-      console.log(data)
+      // console.log(data)
 
       if (post) {
         const file = data.image?.[0]
           ? await serviceObj.uploadFile(data.image[0])
           : null;
         //deleting the old image for the new image to replace it
-        console.log(file)
+        // console.log(file)
         if (!file) {
-          throw new Error("Error : Please Upload the New Image OR Reupload the same image");
+          throw new Error(
+            "Error : Please Upload the New Image OR Reupload the same image"
+          );
         }
-        console.log(post.featuredImage)
+        // console.log(post.featuredImage)
         const delFile = await serviceObj.deleteFile(post.featuredImage);
         if (delFile !== true) {
           throw new Error("Error : Old Image was not Deleted");
@@ -59,7 +72,7 @@ const PostForm = ({ post }) => {
         toast.success("Post Updated Successfully !");
 
         setTimeout(() => {
-          navigate(`/post/${dbPost.$id}`);
+          navigate(`/Brown/post/${dbPost.$id}`);
         }, 3000);
       } else {
         //If post not found then userwants to create new post
@@ -97,7 +110,7 @@ const PostForm = ({ post }) => {
         toast.success("Post Created Successfully !");
         // console.log(newpost)
         setTimeout(() => {
-          navigate(`/post/${newpost?.$id}`);
+          navigate(`/Brown/post/${newpost?.$id}`);
         }, 3000);
       }
     } catch (error) {
@@ -110,35 +123,31 @@ const PostForm = ({ post }) => {
     }
   };
 
-  const slugTranform = useCallback(
-    (value) => {
-      try {
-        if (value && typeof value === "string") {
-
-          const slug = value
+  const slugTranform = useCallback((value) => {
+    try {
+      if (value && typeof value === "string") {
+        const slug = value
           .toLowerCase()
           .replace(/[^a-z0-9\s-]/g, "") // Remove special characters
           .replace(/\s+/g, "-") // Replace spaces with "-"
           .replace(/-+/g, "-"); // Remove multiple dashes
 
-          if (!slug) {
-            throw new Error(
-              "Slug generation failed. Please provide a valid input."
-            );
-          }
-          return slug;
+        if (!slug) {
+          throw new Error(
+            "Slug generation failed. Please provide a valid input."
+          );
         }
-      } catch (error) {
-        const errorObj = {
-          message: error?.message || "An unknown error occurred",
-          type: error?.type || "unknown_error",
-          code: error?.code || 500,
-        };
-        toast.error(`${errorObj.message}`);
+        return slug;
       }
-    },
-    []
-  );
+    } catch (error) {
+      const errorObj = {
+        message: error?.message || "An unknown error occurred",
+        type: error?.type || "unknown_error",
+        code: error?.code || 500,
+      };
+      toast.error(`${errorObj.message}`);
+    }
+  }, []);
 
   //How to change slug as user enters at realtime
   //This is how watch from reactHook Form should be used
@@ -209,16 +218,36 @@ const PostForm = ({ post }) => {
               />
             </div>
           )}
-          <Select
+          <Controller
+            name="status"
+            control={control}
+            defaultValue=""
+            rules={{ required: "Status is required" }}
+            render={({ field }) => (
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <SelectTrigger className="w-[180px]">
+                  <SelectValue placeholder="Select the Status" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectLabel>Status</SelectLabel>
+                    <SelectItem value="active">Active</SelectItem>
+                    <SelectItem value="inactive">Inactive</SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+            )}
+          />
+          {/* <Select
             options={["active", "inactive"]}
             label="Status"
             className="mb-4"
             {...register("status", { required: true })}
-          />
+          /> */}
           <Button
             type="submit"
-            bgColor={post ? "bg-green-500" : undefined}
-            className="w-full"
+            // bgColor={post ? "bg-green-500" : undefined}
+            className={`w-full mt-4 ${post ? "bg-green-500" : undefined}`}
           >
             {post ? "Update" : "Submit"}
           </Button>

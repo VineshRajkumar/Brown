@@ -32,9 +32,9 @@ const Protected = ({ children, authentication = true }) => {
        no mismatches when opened in seperate tab 
        */
     if (authentication && authStatus !== authentication) {
-      navigate("/login");
+      navigate("/Brown/login");
     } else if (!authentication && authStatus !== authentication) {
-      navigate("/dashboard");
+      navigate("/Brown/dashboard");
     }
 
     //  -------------------------

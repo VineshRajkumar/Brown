@@ -1,14 +1,18 @@
 import * as React from "react"
 import * as SelectPrimitive from "@radix-ui/react-select"
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react"
-
+import { forwardRef } from "react";
 import { cn } from "@/lib/utils"
 
-function Select({
-  ...props
-}) {
-  return <SelectPrimitive.Root data-slot="select" {...props} />;
-}
+const Select = forwardRef(({ children, ...props }, ref) => {
+  return (
+    <SelectPrimitive.Root {...props}>
+      <SelectPrimitive.Trigger ref={ref} data-slot="select">
+        {children}
+      </SelectPrimitive.Trigger>
+    </SelectPrimitive.Root>
+  );
+});
 
 function SelectGroup({
   ...props

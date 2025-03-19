@@ -10,7 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-import React, { useState } from "react";
+import React, { useState , useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import serviceObj from "@/appwrite/config";
 import { login as authLogin } from "@/features/auth/authSlice";
@@ -22,6 +22,9 @@ import { Toaster, toast } from 'sonner'
 export function LoginForm({ className, ...props }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+
   //register and handleSubmit are main in
   //react hook form
   const { register, handleSubmit } = useForm();
@@ -30,8 +33,10 @@ export function LoginForm({ className, ...props }) {
   const loginSubmit = async (data) => {
     setError({});
     try {
+      // console.log("Submitting login data:", data);
       //data will be an object with {email,password}
       const session = await authService.login(data);
+      // console.log(session)
       if (session.success != false) {
         const userData = await authService.getCurrentUser();
         //once user is logged in change the login state
@@ -41,7 +46,7 @@ export function LoginForm({ className, ...props }) {
           dispatch(authLogin({userData: userData}));
           toast.success("Login successful!")
         }
-        navigate("/dashboard");
+        navigate("/Brown/dashboard");
       } else throw session;
     } catch (error) {
       const errorObj = {
@@ -98,13 +103,14 @@ export function LoginForm({ className, ...props }) {
                 <div className="grid gap-3">
                   <Label htmlFor="email">Email</Label>
                   <Input
+                  // ref={emailRef}
                     id="email"
                     type="email"
                     placeholder="m@example.com"
                     {...register("email", {
                       required: true,
                       validate: {
-                        matchPatern: (value) =>
+                        matchPattern: (value) =>
                           /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(
                             value
                           ) || "Email address must be a valid address",
@@ -125,6 +131,7 @@ export function LoginForm({ className, ...props }) {
                     </a>
                   </div>
                   <Input
+                  // ref={passwordRef}
                     id="password"
                     type="password"
                     {...register("password", {
@@ -143,7 +150,7 @@ export function LoginForm({ className, ...props }) {
 
             <div className="text-center text-sm">
               Don&apos;t have an account?{" "}
-              <Link to="/sign-up" className="underline underline-offset-4">
+              <Link to="/Brown/sign-up" className="underline underline-offset-4">
                 Sign up
               </Link>
             </div>
