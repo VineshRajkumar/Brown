@@ -10,8 +10,8 @@ export default defineConfig({
   plugins: [react(),tailwindcss()],
   base: "/Brown/",
   build:{
-    minify: false, 
-    sourcemap: true,
+    // minify: false, 
+    // sourcemap: true,
     rollupOptions:{
       output:{
         manualChunks(id){
