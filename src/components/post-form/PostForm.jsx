@@ -63,7 +63,7 @@ const PostForm = ({ post }) => {
         //To update the new image in appwrite
         const dbPost = await serviceObj.updatePost(post.$id, {
           ...data,
-          featuredImage: file ? file.$id : undefined,
+          featuredImage: file ? file.$id : null,
         });
         if (!dbPost) {
           throw new Error("Failed to update the post. Please try again.");
@@ -247,7 +247,7 @@ const PostForm = ({ post }) => {
           <Button
             type="submit"
             // bgColor={post ? "bg-green-500" : undefined}
-            className={`w-full mt-4 ${post ? "bg-green-500" : undefined}`}
+            className={`w-full mt-4 ${post ? "bg-green-500" : ""}`}
           >
             {post ? "Update" : "Submit"}
           </Button>
