@@ -6,10 +6,12 @@ import { Container } from "@/components";
 import parse from "html-react-parser";
 import { useSelector } from "react-redux";
 import adminOptions from "@/appwrite/adminOptions";
+import { Toaster, toast } from "sonner";
 
 export default function Post() {
   const [post, setPost] = useState(null);
   const [author, setAuthor] = useState("");
+  // const [loading, setLoading] = useState(true);
   const { slug } = useParams();
   const navigate = useNavigate();
 
@@ -31,9 +33,25 @@ export default function Post() {
             .then((data) => data)
             .then((username) => setAuthor(username.name))
             .catch((error) => console.error("Error fetching user:", error));
-        } else navigate("/Brown");
+
+          // setLoading(false);
+        } else {
+        
+          toast.error(`Post Not Found !! Navigating To Home Page`);
+          // setLoading(false);
+          setTimeout(() => {
+            navigate(`/Brown`);
+          }, 3000);
+        }
       });
-    } else navigate("/Brown");
+    } else {
+      
+      toast.error(`Post Not Found !! Navigating To Home Page`);
+      // setLoading(false);
+      setTimeout(() => {
+        navigate(`/Brown`);
+      }, 3000);
+    }
   }, [slug, navigate]);
 
   const deletePost = () => {
@@ -78,10 +96,16 @@ export default function Post() {
     </div>
   ) : null;
    */
-
+  // if (loading) {
+  //   return (
+  //     <div className="flex flex-col items-center justify-center min-h-[83vh] bg-black text-white">
+  //       <div className="relative w-16 h-16 border-4 border-gray-500 border-t-white rounded-full animate-spin"></div>
+  //       <p className="mt-4 text-lg font-medium">Please wait...</p>
+  //     </div>
+  //   );
+  // }
   return post ? (
-    
-    ((post.status == "active")||(isAuthor==true)) ? (
+    post.status == "active" || isAuthor == true ? (
       <div className="py-12 bg-gray-100 min-h-screen">
         <Container>
           <div className="max-w-2xl mx-auto bg-white shadow-md rounded-xl p-6">
@@ -114,7 +138,6 @@ export default function Post() {
         </Container>
       </div>
     ) : (
-    
       <div className="flex flex-col items-center justify-center p-6 bg-gradient-to-r from-yellow-100 to-yellow-50 border-l-4 border-yellow-500 rounded-lg shadow-md">
         <div className="flex items-center space-x-3">
           {/* Animated Loader */}
@@ -124,7 +147,26 @@ export default function Post() {
           </p>
         </div>
         <p className="text-yellow-600 text-sm mt-2">Please check back later.</p>
+        <Toaster richColors position="top-right" />
       </div>
     )
-  ) : null;
+  ) : (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
+      <div className="bg-white shadow-md rounded-xl p-6 max-w-lg text-center">
+        <h1 className="text-3xl font-bold text-gray-800 mb-4">
+          Post Not Found
+        </h1>
+        <p className="text-gray-600 mb-6">
+          The post you're looking for might have been removed or is currently
+          unavailable.
+        </p>
+        <Link to="/Brown">
+          <Button className="bg-blue-600 text-white px-4 py-2 rounded-lg">
+            Go Back Home
+          </Button>
+        </Link>
+      </div>
+      <Toaster richColors position="top-right" />
+    </div>
+  );
 }

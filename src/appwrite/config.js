@@ -91,12 +91,13 @@ export class Service{
             )
         } catch (error) {
             console.log("Appwrite service :: getPost :: error")
-            return  {
-                success: false,
-                message: error?.message,
-                type: error?.type || "unknown_error",
-                code: error?.code || 500
-              };   
+            return null;
+            // return  {
+            //     success: false,
+            //     message: error?.message,
+            //     type: error?.type || "unknown_error",
+            //     code: error?.code || 500
+            //   };   
         }
     }
     //Query can only be used if you have 
