@@ -78,7 +78,9 @@ const router = createHashRouter([
       },
     ]
   }
-])
+], {
+  basename: '/Brown', 
+})
 
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
