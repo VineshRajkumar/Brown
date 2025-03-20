@@ -1,4 +1,6 @@
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
+//createBrowserRouter not supported for gh-pages 
+//so using createhashrouter
+import { createHashRouter, RouterProvider } from 'react-router-dom'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
@@ -17,7 +19,7 @@ import Home from './app/home/page'
 import { Protected } from './components'
 import NotFoundPage from './app/not-found/page'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/Brown/',
     element: <Layout/>,
@@ -71,7 +73,7 @@ const router = createBrowserRouter([
       },
       {/* 404 Page*/},
       {
-        path: "/Brown/*",
+        path: '*',
         element: <NotFoundPage/>
       },
     ]
