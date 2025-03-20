@@ -78,9 +78,7 @@ const router = createBrowserRouter([
       },
     ]
   }
-], {
-  basename: '/Brown', 
-})
+])
 
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
