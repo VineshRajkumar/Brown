@@ -54,17 +54,21 @@ export class AuthService{
 
     async getCurrentUser(){
         try {
+            const sessions = await this.account.listSessions(); // Check if a session exists
+            if (sessions.sessions.length === 0) return null; // No active session, return null
+
             return await this.account.get()
         } catch (error) {
             console.log("Appwrite service :: getCurrentUser :: error")
-            
+            return null;
+            // return  {
+            //     success: false,
+            //     message: error?.message,
+            //     type: error?.type || "unknown_error",
+            //     code: error?.code || 500
+            //   };
         }
-        return  {
-            success: false,
-            message: error?.message,
-            type: error?.type || "unknown_error",
-            code: error?.code || 500
-          };
+        
     }
     
 

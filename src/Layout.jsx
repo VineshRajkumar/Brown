@@ -16,10 +16,12 @@ const Layout = () => {
     authService
       .getCurrentUser()
       .then((userData) => {
-        if (userData) return dispatch(login({ userData: userData }));
+        // console.log(userData)
+        if (userData && userData?.$id) return dispatch(login({ userData: userData }));
         else return dispatch(logout());
       })
       .catch((error) => console.log("Error fetching user:", error));
+
 
     //  -------------------------
     //LOADER LOGIC :-

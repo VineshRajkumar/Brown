@@ -29,7 +29,7 @@ const RTE = ({
        // some kind of change happens here
        render={({field : {onChange}}) => (
         <Editor
-        apiKey={conf.tinymceApiKey}
+        apiKey={conf?.tinymceApiKey || "no-api-key"}
         initialValue={defaultValue}
         init={{
           height: 500,
@@ -45,7 +45,7 @@ const RTE = ({
           'removeformat | help',
           content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
         }}
-        onEditorChange={onChange}
+        onEditorChange={(content) => onChange(content)}
       />
        )} 
        />

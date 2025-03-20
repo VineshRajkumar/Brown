@@ -9,22 +9,22 @@ import path from "path"
 export default defineConfig({
   plugins: [react(),tailwindcss()],
   base: "/Brown/",
-  build:{
-    // minify: false, 
-    // sourcemap: true,
-    rollupOptions:{
-      output:{
-        manualChunks(id){
-          if(id.includes("node_modules")){
-            if (id.includes("react-dom/server")) return "react-dom-server";
-            if (id.includes("react-dom/client")) return "react-dom-client";
-            if (id.includes("react-dom")) return "react-dom";
-            return "vendor";
-          }
-        }
-      }
-    }
-  },
+  // build:{
+  //   // minify: false, 
+  //   // sourcemap: true,
+  //   rollupOptions:{
+  //     output:{
+  //       manualChunks(id){
+  //         if(id.includes("node_modules")){
+  //           if (id.includes("react-dom/server")) return "react-dom-server";
+  //           if (id.includes("react-dom/client")) return "react-dom-client";
+  //           if (id.includes("react-dom")) return "react-dom";
+  //           return "vendor";
+  //         }
+  //       }
+  //     }
+  //   }
+  // },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
