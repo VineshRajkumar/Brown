@@ -26,7 +26,7 @@ const Home = () => {
 
       {/* Decorative Elements */}
       <img
-        src="/img2.jpg" 
+        src="https://res.cloudinary.com/vinesh23/image/upload/v1742448904/kcst0spji7zqaypai3xw.jpg" 
         alt="Decorative Image"
         className="fixed right-1 top-19 max-w-[610px] max-[1355px]:hidden "
         

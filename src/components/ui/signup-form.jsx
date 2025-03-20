@@ -45,7 +45,7 @@ export function SignUpForm({ className, ...props }) {
           toast.success("Account Created Successfully !")
         }
         setTimeout(() => {
-            navigate("/Brown");
+            navigate("/Brown/dashboard");
        }, 3000);
         
       } 

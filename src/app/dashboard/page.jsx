@@ -38,6 +38,7 @@ const Dashboard = () => {
               adminOptions
                 .getUserfromUserID(id)
                 .then((data) => ({ userId: id, userName: data.name }))
+                .catch(() => ({ userId: id, userName: "Deleted_user" }))
             )
           ).then((data) => {
             data.forEach(({ userId, userName }) => {
@@ -79,8 +80,8 @@ const Dashboard = () => {
             <div className="flex flex-col gap-6">
               {posts.map((post) => (
                 <Card
-                  key={post.$id}
-                  $id={post.$id}
+                  key={post?.$id}
+                  $id={post?.$id}
                   className="flex flex-row items-start p-4 shadow-lg rounded-lg"
                 >
                   <div className="flex-1 pr-4">
