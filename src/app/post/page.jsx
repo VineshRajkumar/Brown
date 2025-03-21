@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import serviceObj from "@/appwrite/config";
 import { Button } from "@/components/ui/button";
@@ -7,10 +7,15 @@ import parse from "html-react-parser";
 import { useSelector } from "react-redux";
 import adminOptions from "@/appwrite/adminOptions";
 import { Toaster, toast } from "sonner";
+import { FaLink } from "react-icons/fa";
+import { TiTick } from "react-icons/ti";
+
 
 export default function Post() {
   const [post, setPost] = useState(null);
   const [author, setAuthor] = useState("");
+  const [copied, setCopied] = useState(false);
+  
   // const [loading, setLoading] = useState(true);
   const { slug } = useParams();
   const navigate = useNavigate();
@@ -35,8 +40,8 @@ export default function Post() {
             .catch((error) => console.error("Error fetching user:", error));
 
           // setLoading(false);
+          // console.log(window.location.href)
         } else {
-        
           toast.error(`Post Not Found !! Navigating To Home Page`);
           // setLoading(false);
           setTimeout(() => {
@@ -46,7 +51,6 @@ export default function Post() {
         }
       });
     } else {
-      
       toast.error(`Post Not Found !! Navigating To Home Page`);
       // setLoading(false);
       setTimeout(() => {
@@ -65,6 +69,17 @@ export default function Post() {
       }
     });
   };
+
+  //usecallback will remeber the function instead of again and again checking the copyToClipboard function -> Optimizing techinque
+  const copytoClipboard = useCallback(() => {
+    window.navigator.clipboard.writeText(window.location.href);
+    setCopied(true);
+    toast("Link copied", { position: "top-center" });
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
+  });
 
   /*
   return post ? (
@@ -107,6 +122,7 @@ export default function Post() {
   //     </div>
   //   );
   // }
+
   return post ? (
     post.status == "active" || isAuthor == true ? (
       <div className="py-12 bg-gray-100 min-h-screen">
@@ -117,6 +133,16 @@ export default function Post() {
             <div className="text-gray-500 mb-4">
               {new Date(post.$createdAt).toDateString()}
             </div>
+
+            {/* Copy Button */}
+            <div className="flex justify-end mb-7">
+              <Button
+                onClick={copytoClipboard}
+              >
+              <FaLink /> Copy Link
+              </Button>
+            </div>
+
             <div className="w-full flex justify-center mb-6">
               <img
                 src={serviceObj.getFilePreview(post.featuredImage)}
@@ -140,6 +166,7 @@ export default function Post() {
             )}
           </div>
         </Container>
+        <Toaster richColors position="top-right" />
       </div>
     ) : (
       <div className="flex flex-col items-center justify-center p-6 bg-gradient-to-r from-yellow-100 to-yellow-50 border-l-4 border-yellow-500 rounded-lg shadow-md">
