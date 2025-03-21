@@ -15,7 +15,8 @@ function Card({
   return (
      $id ? (
       <Link
-        to={`/Brown/post/${$id}`}
+      // /Brown
+        to={`/post/${$id}`}
         data-slot="card"
         className={cn(
           "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",

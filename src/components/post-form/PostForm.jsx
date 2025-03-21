@@ -72,7 +72,8 @@ const PostForm = ({ post }) => {
         toast.success("Post Updated Successfully !");
 
         setTimeout(() => {
-          navigate(`/Brown/post/${dbPost.$id}`);
+          // /Brown
+          navigate(`/post/${dbPost.$id}`);
         }, 3000);
       } else {
         //If post not found then userwants to create new post
@@ -110,7 +111,8 @@ const PostForm = ({ post }) => {
         toast.success("Post Created Successfully !");
         // console.log(newpost)
         setTimeout(() => {
-          navigate(`/Brown/post/${newpost?.$id}`);
+          // /Brown
+          navigate(`/post/${newpost?.$id}`);
         }, 3000);
       }
     } catch (error) {

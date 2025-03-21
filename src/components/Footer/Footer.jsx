@@ -6,62 +6,72 @@ const Footer = () => {
   const navigate = useNavigate();
   const navItems = [
     {
+      // /Brown
       name: "Help",
-      slug: "/Brown/help",
+      slug: "/help",
       
       class: ""
     },
     {
+      // /Brown
       name: "Status",
-      slug: "/Brown",
+      slug: "/",
       
       class: "max-[903px]:hidden"
     },
     {
+      // /Brown
       name: "About",
-      slug: "/Brown/about",
+      slug: "/about",
      
       class: ""
     },
     {
+      // /Brown
       name: "Carrer",
-      slug: "/Brown",
+      slug: "/",
       
       class: "max-[903px]:hidden"
     },
     {
+      // /Brown
       name: "Press",
-      slug: "/Brown",
+      slug: "/",
       
       class: "max-[903px]:hidden"
     },
     {
+      // /Brown
       name: "Blog",
-      slug: "/Brown",
+      slug: "/",
       
       class: "max-[903px]:hidden"
     },
     {
+      // /Brown
       name: "Privacy",
-      slug: "/Brown",
+      slug: "/",
       
       class: ""
     },
     {
+      // /Brown
       name: "Terms",
-      slug: "/Brown",
+      slug: "/",
       
       class: ""
     },
     {
+      // /Brown
       name: "Text To Speech",
-      slug: "/Brown",
+      slug: "/",
       
       class: "max-[903px]:hidden"
     },
     {
+      // /Brown
       name: "Teams",
-      slug: "/Brown",
+      slug: "/",
       
       class: "max-[903px]:hidden"
     },

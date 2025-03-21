@@ -13,16 +13,19 @@ const Header = () => {
   const navigate = useNavigate();
   const navItems = [
     {
+      // /Brown
       name: "Our Story",
-      slug: "/Brown",
+      slug: "/",
     },
     {
+      // /Brown
       name: "Membership",
-      slug: "/Brown",
+      slug: "/",
     },
     {
+      // /Brown
       name: "Write",
-      slug: "/Brown/post",
+      slug: "/post",
     },
   ];
 
@@ -32,7 +35,8 @@ const Header = () => {
         <nav className="p-4  border-1 border-b-black bg-[#f7f4ed] ">
           <div className="container mx-auto flex flex-row justify-between items-center">
             <Link
-              to="/Brown"
+            // /Brown
+              to="/"
               className="text-4xl font-extrabold font-cormorant-garamond "
             >
               Brown
@@ -42,7 +46,8 @@ const Header = () => {
               <div className="flex justify-evenly gap-x-6 px-9 cursor-pointer">
                 <div className="flex flex-row items-center gap-x-2">
                   <Link
-                    to="/Brown/dashboard"
+                  // /Brown
+                    to="/dashboard"
                     className="my-auto font-roboto text-sm max-[547px]:hidden"
                   >
                     <Button className="  font-roboto text-sm font-medium  ">
@@ -50,7 +55,8 @@ const Header = () => {
                     </Button>
                   </Link>
                   <Link
-                    to="/Brown/post"
+                  // /Brown
+                    to="/post"
                     className="my-auto font-roboto text-sm max-[547px]:hidden"
                   >
                     <Button className="font-roboto text-sm font-medium  ">
@@ -82,12 +88,17 @@ const Header = () => {
                   ))}
 
                   <Link
-                    to="/Brown/login"
+                  // /Brown
+                    to="/login"
                     className="my-auto font-roboto text-sm max-[547px]:hidden"
                   >
                     Sign in
                   </Link>
-                  <Link to="/Brown/sign-up">
+                  
+                  <Link 
+                  // /Brown 
+                  to="/sign-up">
+                  
                     <Button className=" rounded-3xl font-roboto text-sm font-medium  ">
                       Get started
                     </Button>

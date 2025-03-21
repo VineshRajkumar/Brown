@@ -53,7 +53,8 @@ const Dashboard = () => {
       });
     }
     else{
-      navigate(`/Brown/login`);
+      ///Brown
+      navigate(`/login`);
     }
   }, [session,navigate]);
 
@@ -124,7 +125,8 @@ const Dashboard = () => {
           </ul>
 
           <Button>
-            <Link to={"/Brown/post"}> Start writing </Link>
+          {/* /Brown */}
+            <Link to={"/post"}> Start writing </Link>
           </Button>
         </div>
       </div>

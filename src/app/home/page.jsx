@@ -16,7 +16,8 @@ const Home = () => {
         <p className="text-xl max-[768px]:text-lg max-[409px]:text-base max-[332px]:text-sm mt-4 text-gray-700 font-roboto">
           A place to read, write, and deepen your understanding
         </p>
-        <Link to="/Brown/dashboard">
+        {/* /Brown */}
+        <Link to="/dashboard">
         <Button className="mt-6 px-8 py-4 text-lg font-medium bg-black text-white rounded-full hover:bg-gray-900 transition-all max-[768px]:bg-green-500 ">
           Start reading
         </Button>

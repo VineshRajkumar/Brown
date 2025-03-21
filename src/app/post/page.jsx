@@ -40,7 +40,8 @@ export default function Post() {
           toast.error(`Post Not Found !! Navigating To Home Page`);
           // setLoading(false);
           setTimeout(() => {
-            navigate(`/Brown`);
+            // /Brown
+            navigate(`/`);
           }, 3000);
         }
       });
@@ -49,7 +50,8 @@ export default function Post() {
       toast.error(`Post Not Found !! Navigating To Home Page`);
       // setLoading(false);
       setTimeout(() => {
-        navigate(`/Brown`);
+        // /Brown
+        navigate(`/`);
       }, 3000);
     }
   }, [slug, navigate]);
@@ -58,7 +60,8 @@ export default function Post() {
     serviceObj.deletePost(post.$id).then((status) => {
       if (status) {
         serviceObj.deleteFile(post.featuredImage);
-        navigate("/Brown");
+        // /Brown
+        navigate("/");
       }
     });
   };
@@ -126,7 +129,8 @@ export default function Post() {
             </div>
             {isAuthor && (
               <div className="mt-6 flex justify-end gap-3">
-                <Link to={`/Brown/edit-post/${post.$id}`}>
+                {/* /Brown */}
+                <Link to={`/edit-post/${post.$id}`}>
                   <Button className="bg-blue-600 text-white">Edit</Button>
                 </Link>
                 <Button variant="destructive" onClick={deletePost}>
@@ -160,7 +164,8 @@ export default function Post() {
           The post you're looking for might have been removed or is currently
           unavailable.
         </p>
-        <Link to="/Brown">
+        {/* /Brown */}
+        <Link to="/">
           <Button className="bg-blue-600 text-white px-4 py-2 rounded-lg">
             Go Back Home
           </Button>

@@ -21,7 +21,8 @@ const EditPost = () => {
             })
         }
         else{
-            navigate('/Brown')
+            // /Brown
+            navigate('/')
         }
     }, [slug,navigate])
     

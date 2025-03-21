@@ -46,7 +46,8 @@ export function LoginForm({ className, ...props }) {
           dispatch(authLogin({userData: userData}));
           toast.success("Login successful!")
         }
-        navigate("/Brown/dashboard");
+        // /Brown
+        navigate("/dashboard");
       } else throw session;
     } catch (error) {
       const errorObj = {
@@ -150,7 +151,10 @@ export function LoginForm({ className, ...props }) {
 
             <div className="text-center text-sm">
               Don&apos;t have an account?{" "}
-              <Link to="/Brown/sign-up" className="underline underline-offset-4">
+              
+              <Link 
+              // /Brown
+              to="/sign-up" className="underline underline-offset-4">
                 Sign up
               </Link>
             </div>
