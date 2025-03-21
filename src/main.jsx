@@ -21,7 +21,7 @@ import NotFoundPage from './app/not-found/page'
 
 const router = createHashRouter([
   {
-    path: '/Brown/',
+    path: '/',
     element: <Layout/>,
     children: [
       {
